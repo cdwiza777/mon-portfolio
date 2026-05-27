@@ -1,0 +1,14 @@
+# Variables d'environnement locales
+.env
+.env.local
+.env.*.local
+
+# Configuration avec clés API
+config.js
+
+# Node modules
+node_modules/
+
+# Dépendances npm
+package-lock.json
+yarn.lock
