@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StellarView — Observez l'Univers</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+   
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Star canvas -->
+<canvas id="star-canvas"></canvas>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lbClose">✕</button>
+    <img src="" alt="" id="lbImg">
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+    <a href="#hero" class="logo">Stellar<em>View</em></a>
+    <ul class="nav-links">
+        <li><a href="#hero">Accueil</a></li>
+        <li><a href="#specs">Technologies</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="hero">
+    <div class="hero-badge"><span class="dot"></span>Astronomie de précision</div>
+    <h1>
+        Observez<br>
+        <span class="line-accent">l'Infini.</span>
+    </h1>
+    <p class="hero-desc">Grâce à notre optique de précision et notre intelligence artificielle intégrée, l'univers n'a plus de secrets pour vous.</p>
+    <div class="hero-actions">
+        <a href="#specs" class="btn-primary">
+            Explorer le produit
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#galerie" class="btn-ghost">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h12M2 12h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Voir la galerie
+        </a>
+    </div>
+   
+        <div class="scroll-line"></div>
+    </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+    <div class="stat-item reveal">
+        <div class="stat-num">4K</div>
+        <div class="stat-label">Résolution optique</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-num">&lt;2kg</div>
+        <div class="stat-label">Poids total</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-num">200+</div>
+        <div class="stat-label">Constellations IA</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-3">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Possibilités</div>
+    </div>
+</div>
+
+<!-- TECHNOLOGIES -->
+<section id="specs" class="content specs">
+    <div class="specs-header">
+        <div>
+            <div class="section-label reveal">Technologies</div>
+            <h2 class="section-title reveal reveal-delay-1">Ingénierie au service<br>des étoiles</h2>
+        </div>
+        <p class="specs-subtitle reveal reveal-delay-2">Chaque composant est conçu pour capturer l'univers avec une précision chirurgicale.</p>
+    </div>
+
+    <div class="features-grid">
+        <div class="feature-card reveal">
+            <div class="feature-icon fi-red">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            </div>
+            <h3>Optique 4K</h3>
+            <p>Lentilles asphériques multicouches pour une netteté absolue. Capturez les nébuleuses les plus lointaines avec une résolution sans compromis.</p>
+            <span class="feature-tag">Pro Series</span>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-1">
+            <div class="feature-icon fi-green">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3>IA Intégrée</h3>
+            <p>Reconnaissance automatique de 200+ constellations en temps réel. Notre algorithme s'adapte aux conditions atmosphériques pour un tracking parfait.</p>
+            <span class="feature-tag">Neural Engine</span>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-2">
+            <div class="feature-icon fi-yellow">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3>Ultra Léger</h3>
+            <p>Chassis en alliage de titane. Moins de 2kg pour l'ensemble du système — emportez l'observatoire partout où le ciel est dégagé.</p>
+            <span class="feature-tag">Titanium Frame</span>
+        </div>
+    </div>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie" class="content galerie">
+    <div class="galerie-header">
+        <div>
+            <div class="section-label reveal">Galerie</div>
+            <h2 class="section-title reveal reveal-delay-1">Ce que vous<br>pouvez capturer</h2>
+        </div>
+        <p class="specs-subtitle reveal reveal-delay-2">Toutes les images ont été prises avec StellarView, sans retouche.</p>
+    </div>
+
+    <div class="gallery-grid reveal">
+        <div class="gallery-item" data-src="/mnt/user-data/uploads/image1.jpg">
+            <img src="/images/image1.jpg" alt="Nébuleuse d'Orion en haute résolution">
+            <div class="gallery-overlay">
+                <span class="gallery-caption">Nébuleuse d'Orion — M42</span>
+            </div>
+        </div>
+        <div class="gallery-item" data-src="/mnt/user-data/uploads/image2.jpg">
+            <img src="/images/image2.jpg" alt="Nébuleuse gazeuse colorée">
+            <div class="gallery-overlay">
+                <span class="gallery-caption">Ceinture d'Orion — Grand champ</span>
+            </div>
+        </div>
+        <div class="gallery-item" data-src="/mnt/user-data/uploads/image3.jpg">
+            <img src="/images/image3.jpg" alt="Voie Lactée panoramique">
+            <div class="gallery-overlay">
+                <span class="gallery-caption">Voie Lactée — Cœur galactique</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="content contact">
+    <div class="contact-inner">
+        <div class="section-label reveal">Contact</div>
+        <h2 class="section-title reveal reveal-delay-1">Prêt pour<br>le décollage ?</h2>
+        <p class="reveal reveal-delay-2">Laissez-nous votre email pour recevoir les prochaines dates de lancement et nos offres exclusives.</p>
+
+        <form action="https://formspree.io/f/xjgzjvwl"
+  method="POST" class="contact-form reveal reveal-delay-3" id="contactForm">
+            <div class="form-group">
+                <label for="email">Adresse email</label>
+                <input type="email" id="email" placeholder="vous@exemple.com" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Votre message</label>
+                <textarea id="message" rows="4" placeholder="Votre question ou projet d'observation..."></textarea>
+            </div>
+            <button type="submit" class="form-submit">
+                Envoyer le message
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <a href="#hero" class="logo">Stellar<em>View</em></a>
+    <p>© 2026 StellarView. Tous droits réservés.</p>
+</footer>
+
+<script src="script.js">
+
+</script>
+</body>
+</html>

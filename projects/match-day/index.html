@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MatchDay FC | L'Académie des Champions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;1,900&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="ring"></div>
+
+<!-- NAV -->
+<nav id="nav">
+    <a href="#hero" class="logo">MATCH<em>DAY</em></a>
+    <ul class="nav-links">
+        <li><a href="#planning">Planning</a></li>
+        <li><a href="#inscription">Inscription</a></li>
+        <li><a href="#inscription" class="btn-nav">Nous rejoindre</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="hero">
+    <div class="pitch-bg">
+        <div class="pitch-lines">
+            <svg viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <!-- Pitch outline -->
+                <rect x="60" y="60" width="1080" height="580" stroke="white" stroke-width="3"/>
+                <!-- Center line -->
+                <line x1="600" y1="60" x2="600" y2="640" stroke="white" stroke-width="3"/>
+                <!-- Center circle -->
+                <circle cx="600" cy="350" r="100" stroke="white" stroke-width="3"/>
+                <circle cx="600" cy="350" r="4" fill="white"/>
+                <!-- Left penalty box -->
+                <rect x="60" y="220" width="160" height="260" stroke="white" stroke-width="3"/>
+                <rect x="60" y="280" width="60" height="140" stroke="white" stroke-width="3"/>
+                <!-- Right penalty box -->
+                <rect x="980" y="220" width="160" height="260" stroke="white" stroke-width="3"/>
+                <rect x="1080" y="280" width="60" height="140" stroke="white" stroke-width="3"/>
+                <!-- Penalty spots -->
+                <circle cx="220" cy="350" r="4" fill="white"/>
+                <circle cx="980" cy="350" r="4" fill="white"/>
+                <!-- Corner arcs -->
+                <path d="M60 80 A20 20 0 0 0 80 60" stroke="white" stroke-width="3"/>
+                <path d="M1120 80 A20 20 0 0 1 1140 60" stroke="white" stroke-width="3"/>
+                <path d="M60 620 A20 20 0 0 1 80 640" stroke="white" stroke-width="3"/>
+                <path d="M1120 620 A20 20 0 0 0 1140 640" stroke="white" stroke-width="3"/>
+            </svg>
+        </div>
+    </div>
+
+    <div class="hero-inner">
+        <div class="hero-tag"><span class="tag-dot"></span>FC Academy — Saison 2026</div>
+        <h1>
+            <span class="solid">Deviens</span><br>
+            <span class="stroke">une</span> <span class="solid">légende.</span>
+        </h1>
+        <p class="hero-sub">Rejoins le FC Academy et profite d'un coaching professionnel pour propulser ta carrière footballistique au sommet.</p>
+        <div class="hero-cta">
+            <a href="#inscription" class="btn-primary">
+                S'inscrire maintenant
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="#planning" class="btn-ghost">Voir le planning</a>
+        </div>
+    </div>
+
+    <div class="scroll-hint">
+        
+        <div class="scroll-bar"></div>
+    </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+    <div class="stat reveal"><div class="stat-val">4</div><div class="stat-lbl">Catégories</div></div>
+    <div class="stat reveal d1"><div class="stat-val">12+</div><div class="stat-lbl">Coachs pros</div></div>
+    <div class="stat reveal d2"><div class="stat-val">100%</div><div class="stat-lbl">Essai gratuit</div></div>
+    <div class="stat reveal d3"><div class="stat-val">2</div><div class="stat-lbl">Terrains</div></div>
+</div>
+
+<!-- PLANNING -->
+<section id="planning" class="section planning">
+    <div class="planning-header">
+        <div>
+            <div class="section-label reveal">Programme</div>
+            <h2 class="section-title reveal d1">Planning des<br>entraînements</h2>
+        </div>
+        <p class="planning-sub reveal d2">Deux sessions par semaine pour chaque catégorie, animées par des éducateurs certifiés.</p>
+    </div>
+
+    <div class="table-wrap reveal d1">
+        <table>
+            <thead>
+                <tr>
+                    <th>Catégorie</th>
+                    <th>Jours</th>
+                    <th>Horaires</th>
+                    <th>Terrain</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>U13 — Benjamins</strong></td>
+                    <td>Mercredi / Samedi</td>
+                    <td>14h00 – 16h00</td>
+                    <td><span class="terrain-a">● Terrain A</span> <span class="category-badge">Pelouse</span></td>
+                </tr>
+                <tr>
+                    <td><strong>U15 — Minimes</strong></td>
+                    <td>Mardi / Jeudi</td>
+                    <td>18h00 – 20h00</td>
+                    <td><span class="terrain-b">● Terrain B</span> <span class="category-badge">Synthé</span></td>
+                </tr>
+                <tr>
+                    <td><strong>U17 — Cadets</strong></td>
+                    <td>Lundi / Vendredi</td>
+                    <td>18h30 – 20h30</td>
+                    <td><span class="terrain-a">● Terrain A</span> <span class="category-badge">Pelouse</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Séniors</strong></td>
+                    <td>Mardi / Jeudi</td>
+                    <td>20h00 – 22h00</td>
+                    <td><span class="terrain-a">● Terrain A</span> <span class="category-badge">Pelouse</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- INSCRIPTION -->
+<section id="inscription" class="section inscription">
+    <div class="inscription-inner">
+        <div class="section-label reveal">Rejoindre le club</div>
+        <h2 class="section-title reveal d1">Rejoins l'équipe</h2>
+        <p class="reveal d2">Remplis le formulaire pour une séance d'essai gratuite. On revient vers toi sous 48h.</p>
+
+        <div class="form-card reveal d3">
+            <form id="contactForm" action="https://formspree.io/f/xeevpoao" method="POST">
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="name">Nom complet</label>
+                        <input type="text" id="name" name="name" placeholder="Jean Dupont" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="age">Âge</label>
+                       
+                     <div class="custom-number-input">
+                     <button onclick="this.parentNode.querySelector('input').stepDown()">-</button>
+                     <input type="number" id="age" class="age" name="age" placeholder="16" min="6" max="50" required>
+                     <button onclick="this.parentNode.querySelector('input').stepUp()">+</button>
+                     </div>
+
+                    </div>
+                </div>
+                <div class="form-field">
+                    <label for="poste">Poste préféré</label>
+                    <div class="select-wrapper">
+                        <select id="poste" name="poste_joueur" required>
+                            <option value="">Choisir un poste…</option>
+                            <option value="attaquant"> Attaquant</option>
+                            <option value="milieu"> Milieu</option>
+                            <option value="defenseur"> Défenseur</option>
+                            <option value="gardien"> Gardien</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-field">
+                    <label for="email">Email de contact</label>
+                    <input type="email" id="email" name="email_contact" placeholder="parent@email.com" required>
+                </div>
+                <button type="submit" class="btn-submit" id="submitBtn">
+                    Envoyer ma candidature
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <a href="#hero" class="logo">MATCH<em>DAY</em></a>
+    <p>© 2026 MatchDay FC — Conçu pour la victoire.</p>
+</footer>
+
+<script src="script.js">
+
+
+</script>
+</body>
+</html>

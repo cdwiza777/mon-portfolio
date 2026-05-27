@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUX.DEV — Architecte Full-Stack & UX Design</title>
+    <meta name="description" content="Portfolio de développement full-stack et design UX premium. Solutions logicielles haute fidélité, optimisées pour la conversion.">
+    <meta property="og:title" content="LUX.DEV — Architecte Full-Stack & UX Design">
+    <meta property="og:description" content="Solutions logicielles haute fidélité, optimisées pour la conversion.">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ===== LOADER ===== -->
+    <div id="loader" aria-hidden="true">
+        <div class="loader-logo">LUX.<span>DEV</span></div>
+        <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+
+    <!-- ===== CURSEUR CUSTOM ===== -->
+    <div id="cursor" aria-hidden="true"></div>
+    <div id="cursor-follower" aria-hidden="true"></div>
+
+    <!-- ===== BARRE DE PROGRESSION SCROLL ===== -->
+    <div id="scroll-progress" aria-hidden="true"></div>
+
+    <!-- ===== CANVAS PARTICULES ===== -->
+    <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar" aria-label="Navigation principale">
+        <a href="#" class="logo" aria-label="LUX.DEV — accueil">LUX.<span class="logo-accent">DEV</span></a>
+
+        <div class="nav-links" id="nav-links">
+            <a href="#about" class="nav-item">À propos</a>
+            <a href="#projets" class="nav-item">Projets</a>
+            <a href="#contact" class="nav-item">Contact</a>
+        </div>
+
+        <!-- Burger mobile -->
+        <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- ===== MENU MOBILE OVERLAY ===== -->
+    <div class="mobile-overlay" id="mobile-overlay" aria-hidden="true">
+        <div class="mobile-links">
+            <a href="#about" class="mobile-link" data-close>À propos</a>
+            <a href="#projets" class="mobile-link" data-close>Projets</a>
+            <a href="#contact" class="mobile-link" data-close>Contact</a>
+        </div>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <header class="hero">
+        <p class="hero-label reveal">Architecte Full-Stack & UX Design</p>
+        <h1 class="reveal-up">
+            L'ingénierie rencontre<br>
+            le <span class="typewriter-wrap"><span id="typewriter"></span><span class="cursor-blink">|</span></span>.
+        </h1>
+        <p class="hero-sub reveal-up delay-2">Solutions logicielles haute fidélité,<br>optimisées pour la conversion.</p>
+        <div class="hero-actions reveal-up delay-3">
+            <a href="#projets" class="btn-primary magnetic">Voir les projets</a>
+            <a href="#contact" class="btn-ghost magnetic">Me contacter</a>
+        </div>
+    </header>
+
+    <!-- ===== MARQUEE TECH STACK ===== -->
+    <section class="marquee-section" aria-label="Technologies maîtrisées">
+        <div class="marquee-track">
+            <div class="marquee-inner">
+                <span>HTML5</span><span class="sep">·</span>
+                <span>CSS3</span><span class="sep">·</span>
+                <span>JavaScript ES6+</span><span class="sep">·</span>
+                <span>Node.js</span><span class="sep">·</span>
+                <span>React</span><span class="sep">·</span>
+                <span>WebSocket</span><span class="sep">·</span>
+                <span>Figma</span><span class="sep">·</span>
+                <span>UX Design</span><span class="sep">·</span>
+                <span>API REST</span><span class="sep">·</span>
+                <span>Lighthouse 100</span><span class="sep">·</span>
+                <span>SEO</span><span class="sep">·</span>
+                <span>Mobile-First</span><span class="sep">·</span>
+            </div>
+            <!-- Doublon pour seamless loop -->
+            <div class="marquee-inner" aria-hidden="true">
+                <span>HTML5</span><span class="sep">·</span>
+                <span>CSS3</span><span class="sep">·</span>
+                <span>JavaScript ES6+</span><span class="sep">·</span>
+                <span>Node.js</span><span class="sep">·</span>
+                <span>React</span><span class="sep">·</span>
+                <span>WebSocket</span><span class="sep">·</span>
+                <span>Figma</span><span class="sep">·</span>
+                <span>UX Design</span><span class="sep">·</span>
+                <span>API REST</span><span class="sep">·</span>
+                <span>Lighthouse 100</span><span class="sep">·</span>
+                <span>SEO</span><span class="sep">·</span>
+                <span>Mobile-First</span><span class="sep">·</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="about-section">
+        <div class="about-inner">
+            <div class="about-avatar reveal-left">
+                <div class="avatar-ring">
+                    <div class="avatar-core">L</div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-num counter" data-target="12">0</span>
+                        <span class="stat-label">Projets livrés</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num counter" data-target="4">0</span>
+                        <span class="stat-label">Micro-SaaS</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num counter" data-target="100">0</span>
+                        <span class="stat-label">Lighthouse</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-text reveal-right">
+                <p class="about-eyebrow">À propos</p>
+                <h2>Je construis des produits<br>qui <em>convertissent</em>.</h2>
+                <p class="about-desc">Développeur full-stack spécialisé dans les interfaces premium et les architectures modulaires. Chaque ligne de code est pensée pour l'utilisateur — et pour le client qui veut des résultats.</p>
+                <div class="tech-badges">
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">Node.js</span>
+                    <span class="tech-badge">CSS Avancé</span>
+                    <span class="tech-badge">UX Design</span>
+                    <span class="tech-badge">SEO Technique</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJETS ===== -->
+    <section id="projets" aria-labelledby="section-projets-titre">
+        <div class="section-header reveal-up">
+            <h2 id="section-projets-titre">Projets sélectionnés</h2>
+            <p class="section-sub">Quatre produits indépendants, une cohérence de marque.</p>
+        </div>
+
+        <div class="grid-container">
+
+            <article class="project-card card-featured reveal-up tilt-card">
+                <div class="project-visual" aria-hidden="true">
+                    <div class="visual-inner scan-bg">
+                        <span class="visual-label">ScanMenu</span>
+                        <div class="visual-shine"></div>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="card-meta">
+                        <span class="tag">QR · Menu · SaaS</span>
+                        <span class="tag-status live">En ligne</span>
+                    </div>
+                    <h3>ScanMenu Luxe</h3>
+                    <p>Système de menu QR Code haut de gamme pour la restauration de prestige. Gestion d'images via API, chargement différé, interface mobile-first.</p>
+                    <a href="#" class="link-arrow" aria-label="Voir la démo de ScanMenu Luxe">Voir la démo</a>
+                </div>
+            </article>
+
+            <article class="project-card reveal-up delay-1 tilt-card">
+                <div class="project-visual" aria-hidden="true">
+                    <div class="visual-inner game-bg">
+                        <span class="visual-label">Undercover</span>
+                        <div class="visual-shine"></div>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="card-meta">
+                        <span class="tag">Jeu · IA · WebSocket</span>
+                        <span class="tag-status beta">Bêta</span>
+                    </div>
+                    <h3>Social Gaming Platform</h3>
+                    <p>Jeux psychologiques avec intégration d'IA pour simuler des joueurs réels. Logique ES6+, architecture WebSocket-ready.</p>
+                    <a href="#" class="link-arrow" aria-label="Jouer à Social Gaming Platform">Jouer maintenant</a>
+                </div>
+            </article>
+
+            <article class="project-card reveal-up delay-2 tilt-card">
+                <div class="project-visual" aria-hidden="true">
+                    <div class="visual-inner stellar-bg">
+                        <span class="visual-label">StellarView</span>
+                        <div class="visual-shine"></div>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="card-meta">
+                        <span class="tag">SaaS · SEO · Landing</span>
+                    </div>
+                    <h3>StellarView</h3>
+                    <p>Landing page SaaS ultra-minimaliste pour produits tech. Meta OpenGraph complets, optimisation SEO avancée.</p>
+                    <a href="#" class="link-arrow" aria-label="Accéder au template StellarView">Template Premium</a>
+                </div>
+            </article>
+
+            <article class="project-card reveal-up delay-3 tilt-card">
+                <div class="project-visual" aria-hidden="true">
+                    <div class="visual-inner foot-bg">
+                        <span class="visual-label">Foot Club</span>
+                        <div class="visual-shine"></div>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="card-meta">
+                        <span class="tag">Sport · Club · Web</span>
+                    </div>
+                    <h3>Elite Football Kit</h3>
+                    <p>Architecture web complète pour clubs sportifs professionnels. Conçu pour la conversion et le partage social.</p>
+                    <a href="#" class="link-arrow" aria-label="Voir les détails du projet Foot Club">Détails du projet</a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="contact-section">
+        <div class="contact-inner">
+            <div class="contact-left reveal-left">
+                <p class="about-eyebrow">Contact</p>
+                <h2 id="contact-titre">Prêt à scaler<br>votre vision&nbsp;?</h2>
+                <p>Disponible pour des missions freelance, des collaborations longue durée ou des audits qualité. Réponse sous 24h.</p>
+                <div class="contact-details">
+                    <a href="mailto:cdweme@gmail.com" class="contact-line" aria-label="Envoyer un email">
+                        <span class="contact-icon" aria-hidden="true">↗</span>cdweme@gmail.com
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-line" aria-label="LinkedIn">
+                        <span class="contact-icon" aria-hidden="true">↗</span>LinkedIn
+                    </a>
+                </div>
+            </div>
+            <div class="contact-right reveal-right">
+                <form action="https://formspree.io/f/xlgvonre"  method="POST" class="contact-form" id="contact-form" aria-label="Formulaire de contact" novalidate>
+                    <div class="field-group">
+                        <label for="nom">Nom</label>
+                        <input type="text" id="nom" name="nom" placeholder="Votre nom" required autocomplete="name">
+                    </div>
+                    <div class="field-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="votre@email.com" required autocomplete="email">
+                    </div>
+                    <div class="field-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Décrivez votre projet..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary full-width magnetic" aria-label="Envoyer le message">
+                        <span class="btn-text">Envoyer le message</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <span class="footer-logo">LUX.<span class="logo-accent">DEV</span></span>
+        <p class="footer-copy">© 2026 — Tous droits réservés</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

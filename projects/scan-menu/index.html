@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Notre carte — découvrez tous nos plats">
+    <title>ScanMenu — Notre Carte</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="client-header">
+        <div class="header-content">
+            <div class="logo">Scan<span>Menu</span></div>
+            <div class="divider"></div>
+            <p class="subtitle">L'Excellence dans votre assiette</p>
+        </div>
+    </header>
+
+    <!-- La barre de filtre est injectée dynamiquement par script.js -->
+
+    <main class="container">
+        <div id="menu-client" class="menu-grid" role="main" aria-label="Menu du restaurant">
+            <!-- Skeleton loading -->
+            <div class="card-client">
+                <div class="card-img-container skeleton" style="height:210px;border-radius:0"></div>
+                <div class="card-body" style="gap:10px;display:flex;flex-direction:column">
+                    <div class="skeleton" style="height:12px;width:60px;border-radius:50px"></div>
+                    <div class="skeleton" style="height:22px;width:80%"></div>
+                    <div class="skeleton" style="height:14px;width:100%"></div>
+                    <div class="skeleton" style="height:14px;width:70%"></div>
+                    <div class="skeleton" style="height:30px;width:90px;border-radius:50px;margin-top:4px"></div>
+                </div>
+            </div>
+            <div class="card-client">
+                <div class="card-img-container skeleton" style="height:210px;border-radius:0"></div>
+                <div class="card-body" style="gap:10px;display:flex;flex-direction:column">
+                    <div class="skeleton" style="height:12px;width:70px;border-radius:50px"></div>
+                    <div class="skeleton" style="height:22px;width:75%"></div>
+                    <div class="skeleton" style="height:14px;width:100%"></div>
+                    <div class="skeleton" style="height:14px;width:55%"></div>
+                    <div class="skeleton" style="height:30px;width:80px;border-radius:50px;margin-top:4px"></div>
+                </div>
+            </div>
+            <div class="card-client">
+                <div class="card-img-container skeleton" style="height:210px;border-radius:0"></div>
+                <div class="card-body" style="gap:10px;display:flex;flex-direction:column">
+                    <div class="skeleton" style="height:12px;width:55px;border-radius:50px"></div>
+                    <div class="skeleton" style="height:22px;width:85%"></div>
+                    <div class="skeleton" style="height:14px;width:100%"></div>
+                    <div class="skeleton" style="height:14px;width:65%"></div>
+                    <div class="skeleton" style="height:30px;width:95px;border-radius:50px;margin-top:4px"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="client-footer">
+        <p>&copy; <span id="footer-year"></span> ScanMenu Digital</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

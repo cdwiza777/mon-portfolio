@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScanMenu — Administration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-bg">
+
+    <!-- NAVIGATION -->
+    <nav class="top-nav" role="navigation">
+        <div class="nav-container">
+            <div class="admin-logo">Scan<span>Menu</span> <small style="font-size:0.65rem;font-weight:400;opacity:0.5;font-family:var(--font-body);letter-spacing:2px;text-transform:uppercase;">Admin</small></div>
+            <div class="nav-right">
+                <a href="index.html" class="btn-view-client" target="_blank" rel="noopener">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    Voir le menu client
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="admin-main">
+
+        <!-- COLONNE GAUCHE : Formulaire -->
+        <section class="admin-card" aria-label="Formulaire d'ajout de plat">
+            <h1>Ajouter un plat</h1>
+            <p>Remplissez tous les champs pour ajouter un nouveau plat à la carte.</p>
+
+            <div class="admin-form">
+                <div class="form-group">
+                    <label for="text">Nom du plat *</label>
+                    <input type="text" id="text" placeholder="Ex: Burger Maison, Tarte Tatin..." autocomplete="off" maxlength="80">
+                    <span class="error-msg">Le nom du plat est requis</span>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="prix">Prix (TL) *</label>
+                        <input type="number" id="prix" placeholder="Ex: 85" min="1" max="99999" step="1">
+                        <span class="error-msg">Prix invalide</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="categorie">Catégorie</label>
+                        <select id="categorie">
+                            <option value="">Sans catégorie</option>
+                            <option value="Entrées">Entrées</option>
+                            <option value="Plats">Plats</option>
+                            <option value="Desserts">Desserts</option>
+                            <option value="Boissons">Boissons</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description (optionnel)</label>
+                    <textarea id="description" placeholder="Ingrédients, mode de préparation, allergènes..." maxlength="200"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Photo du plat *</label>
+                    <div class="file-wrapper">
+                        <label for="photo" class="modern-file-btn">
+                            <img id="file-preview" class="file-preview" alt="Aperçu">
+                                <i data-lucide="camera" style="width: 20px; height: 20px; color: #374151; stroke-width: 2px;"></i>
+                                <div class="file-text">
+                                <span class="primary">Choisir une photo</span>
+                                <span class="secondary">JPG, PNG, WebP — max 5MB</span>
+                            </div>
+                        </label>
+                        <input type="file" id="photo" accept="image/jpeg,image/png,image/webp,image/gif">
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" id="add-btn">Enregistrer le plat</button>
+            </div>
+        </section>
+
+        <!-- COLONNE DROITE : QR Code -->
+        <section id="qr-section" class="admin-card" aria-label="Générateur de QR code">
+            <h2>Partager le menu</h2>
+            <p>Générez un QR code à afficher en salle pour vos clients.</p>
+            <div id="qrcode-container"></div>
+            <button class="btn btn-primary" id="generate-qr">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="m14 14 3 3m0-3-3 3"/><path d="M14 20h3v-3"/></svg>
+                Générer le QR Code
+            </button>
+        </section>
+
+        <!-- LISTE DES PLATS (pleine largeur) -->
+        <section class="admin-card admin-list-section" aria-label="Liste des plats">
+
+            <!-- Stats -->
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="stat-number" id="stat-total">0</div>
+                    <div class="stat-label">Plats</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="stat-categories">0</div>
+                    <div class="stat-label">Catégories</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="stat-avg-price">0 TL</div>
+                    <div class="stat-label">Prix moyen</div>
+                </div>
+            </div>
+
+            <div class="admin-list-header">
+                <h2 style="margin-bottom:0">Plats actuels</h2>
+                <input type="text" class="admin-search" id="admin-search-input" placeholder="Filtrer les plats..." autocomplete="off">
+            </div>
+
+            <div id="affichage" class="admin-list-container" role="list" aria-label="Liste des plats enregistrés">
+                <!-- Injecté par JavaScript -->
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Modal de confirmation (injecté par JS) -->
+     <script src="config.js"></script>
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+    lucide.createIcons();
+    </script>
+</body>
+</html>
