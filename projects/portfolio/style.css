@@ -435,8 +435,16 @@ h1 {
 
 .scan-bg    { background: linear-gradient(135deg, #0d1a2e 0%, #0071e3 70%, #001a3d 100%); }
 .game-bg    { background: linear-gradient(135deg, #1a0a00 0%, #5c3000 60%, #0d0500 100%); }
-.stellar-bg { background: linear-gradient(135deg, #000d1a 0%, #003d5c 65%, #000510 100%); }
-.foot-bg    { background: linear-gradient(135deg, #001a00 0%, #004d1a 65%, #000d00 100%); }
+.stellar-bg {
+    background:url('/projects/portfolio/images/stellarview.png') center/cover no-repeat ,
+    linear-gradient(to bottom, rgba(5,8,22,0.45) 0%, rgba(5,8,22,0.72) 100%)
+                ;
+}
+.foot-bg    {
+    background:  url('/projects/portfolio/images/matchday.png') center/cover no-repeat,
+    linear-gradient(to bottom, rgba(10,8,6,0.45) 0%, rgba(10,8,6,0.75) 100%);
+    border-bottom: solid 1px rgba(255,255,255,0.07);
+}
 
 .project-content { padding: 1.75rem; }
 .card-meta { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.85rem; }

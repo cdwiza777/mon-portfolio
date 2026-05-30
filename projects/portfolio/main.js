@@ -134,31 +134,59 @@ window.addEventListener('scroll', () => {
     draw();
 })();
 
-/* ── 5. TYPEWRITER ─────────────────────────────────────── */
+/* ── 5. TYPEWRITER (avec accord grammatical de l'article) ── */
 (function initTypewriter() {
-    const el = document.getElementById('typewriter');
+    const el      = document.getElementById('typewriter');
+    const article = document.getElementById('typewriter-article');
     if (!el) return;
 
-    const words = ['Design Premium', 'UX de Luxe', 'Conversion', 'Performance'];
+    /*
+     * Chaque entrée porte son article :
+     *  - "le" devant masculin commençant par consonne
+     *  - "la" devant féminin commençant par consonne
+     *  - "l'"devant voyelle (article élidé, collé au mot)
+     * L'article est mis à jour instantanément au moment
+     * du changement de mot, avant que le nouveau mot commence.
+     */
+    const entries = [
+        { article: 'le',  word: 'Design Premium' },
+        { article: "l'",  word: 'Excellent' },
+        { article: 'la',  word: 'Conversion' },
+        { article: 'la',  word: 'Performance' },
+        { article: "l'",  word: 'Excellence' },
+    ];
+
     let wi = 0, ci = 0, deleting = false;
 
+    function setArticle(a) {
+        if (!article) return;
+        article.textContent = a;
+    }
+
     function tick() {
-        const word = words[wi];
+        const { word } = entries[wi];
         el.textContent = deleting ? word.slice(0, ci--) : word.slice(0, ci++);
 
-        let delay = deleting ? 45 : 85;
+        let delay = deleting ? 42 : 82;
 
         if (!deleting && ci > word.length) {
-            delay = 1800; // pause avant effacement
+            /* Pause en fin de mot */
+            delay = 1900;
             deleting = true;
         } else if (deleting && ci < 0) {
+            /* Mot effacé → passer au suivant */
             deleting = false;
-            wi = (wi + 1) % words.length;
+            wi = (wi + 1) % entries.length;
             ci = 0;
-            delay = 300;
+            /* Met à jour l'article AVANT que le nouveau mot s'écrive */
+            setArticle(entries[wi].article);
+            delay = 280;
         }
         setTimeout(tick, delay);
     }
+
+    /* Initialiser l'article du premier mot */
+    setArticle(entries[0].article);
     tick();
 })();
 

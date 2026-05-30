@@ -1,3 +1,17 @@
+/**
+ * ScanMenu — Core Application v2.0
+ * Architecture: Module Pattern + Event-Driven
+ * 
+ * SÉCURITÉ: La clé API est passée en paramètre URL ou via une variable
+ * d'environnement côté serveur. NE JAMAIS hardcoder une clé API en production.
+ * 
+ * Pour déploiement: créer un fichier config.js ignoré par git
+ * contenant: window.IMGBB_API_KEY = "votre_clé_ici";
+ */
+
+/* =============================================
+   CONFIGURATION
+   ============================================= */
 const CONFIG = {
     // Lire la clé depuis une variable globale (fichier config.js non versionné)
     // ou depuis les paramètres URL pour les tests
@@ -135,21 +149,31 @@ const ImageUploader = {
         }
 
         if (!CONFIG.imgbbKey) {
-            // Mode développement : utiliser une URL base64 locale
-            console.warn('⚠️ Aucune clé ImgBB. Utilisation du mode base64 local (non recommandé en production).');
+            console.warn('⚠️ Aucune clé ImgBB — mode base64 local activé.');
             return Utils.fileToBase64(file);
         }
 
         const formData = new FormData();
         formData.append('image', file);
 
-        const response = await fetch(`https://api.imgbb.com/1/upload?key=${CONFIG.imgbbKey}`, {
-            method: 'POST',
-            body: formData,
-        });
+        let response;
+        try {
+            response = await fetch(`https://api.imgbb.com/1/upload?key=${CONFIG.imgbbKey}`, {
+                method: 'POST',
+                body: formData,
+            });
+        } catch {
+            throw new Error('Impossible de joindre ImgBB. Vérifiez votre connexion internet.');
+        }
 
         const data = await response.json();
-        if (!data.success) throw new Error(data.error?.message || 'Erreur ImgBB');
+        if (!data.success) {
+            const msg = data.error?.message || '';
+            if (response.status === 400 || msg.toLowerCase().includes('key')) {
+                throw new Error('Clé ImgBB invalide. Vérifiez config.js.');
+            }
+            throw new Error('Erreur ImgBB : ' + (msg || response.status));
+        }
         return data.data.url;
     },
 };
@@ -293,6 +317,19 @@ function initAdminPage() {
     const secondaryLabel = document.querySelector('.file-text .secondary');
 
     let editingId = null;
+
+    // API key status badge
+    const badge = document.getElementById('api-status-badge');
+    if (badge) {
+        if (CONFIG.imgbbKey) {
+            badge.textContent = '✓ ImgBB connecté';
+            badge.className = 'api-badge ok';
+        } else {
+            badge.textContent = '⚠ Clé ImgBB manquante';
+            badge.className = 'api-badge missing';
+            Toast.error('config.js introuvable ou clé ImgBB vide — les images seront en base64 local');
+        }
+    }
 
     // Stats display
     function updateStats() {
