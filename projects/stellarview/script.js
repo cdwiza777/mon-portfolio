@@ -77,6 +77,24 @@ window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 40);
 });
 
+// ===== BURGER MENU =====
+const burger = document.getElementById('burger');
+const navDrawer = document.getElementById('navDrawer');
+burger.addEventListener('click', () => {
+    const open = navDrawer.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+});
+document.querySelectorAll('.drawer-link').forEach(link => {
+    link.addEventListener('click', () => {
+        navDrawer.classList.remove('open');
+        burger.classList.remove('open');
+        burger.setAttribute('aria-expanded', false);
+        document.body.style.overflow = '';
+    });
+});
+
 // ===== REVEAL ON SCROLL =====
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver(entries => {

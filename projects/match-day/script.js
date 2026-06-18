@@ -20,6 +20,77 @@ document.querySelectorAll('a,button,.stat').forEach(el => {
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40));
 
+// === BURGER MENU ===
+const burger = document.getElementById('burger');
+const navDrawer = document.getElementById('navDrawer');
+burger.addEventListener('click', () => {
+    const open = navDrawer.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+});
+document.querySelectorAll('.drawer-link').forEach(link => {
+    link.addEventListener('click', () => {
+        navDrawer.classList.remove('open');
+        burger.classList.remove('open');
+        burger.setAttribute('aria-expanded', false);
+        document.body.style.overflow = '';
+    });
+});
+
+// === CUSTOM SELECT ===
+// — Pour modifier le comportement, éditer uniquement ce bloc —
+const posteSelect  = document.getElementById('posteSelect');
+const posteTrigger = document.getElementById('posteTrigger');
+const posteLabel   = document.getElementById('posteLabel');
+const posteNative  = document.getElementById('posteNative');
+const posteDropdown = document.getElementById('posteDropdown');
+
+// Ouvrir / fermer
+posteTrigger.addEventListener('click', () => {
+    const isOpen = posteSelect.classList.toggle('open');
+    posteTrigger.setAttribute('aria-expanded', isOpen);
+});
+
+// Sélectionner une option
+posteDropdown.querySelectorAll('.cs-option').forEach(opt => {
+    opt.addEventListener('click', () => {
+        const val   = opt.dataset.value;
+        const label = opt.querySelector('.cs-option__label').textContent;
+
+        // Mettre à jour le label affiché
+        posteLabel.textContent = label;
+        posteTrigger.classList.add('has-value');
+
+        // Synchroniser le select natif (soumission formulaire)
+        posteNative.value = val;
+
+        // Marquer l'option sélectionnée
+        posteDropdown.querySelectorAll('.cs-option').forEach(o => o.classList.remove('selected'));
+        opt.classList.add('selected');
+
+        // Fermer
+        posteSelect.classList.remove('open');
+        posteTrigger.setAttribute('aria-expanded', false);
+    });
+});
+
+// Fermer au clic extérieur
+document.addEventListener('click', e => {
+    if (!posteSelect.contains(e.target)) {
+        posteSelect.classList.remove('open');
+        posteTrigger.setAttribute('aria-expanded', false);
+    }
+});
+
+// Fermer à Échap
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+        posteSelect.classList.remove('open');
+        posteTrigger.setAttribute('aria-expanded', false);
+    }
+});
+
 // === REVEAL ===
 const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
